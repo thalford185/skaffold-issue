@@ -8,7 +8,7 @@ profiles:
   - name: local
     activation:
       - command: dev
-      - kubeContext: minikube
+      - env: DEV=1
     patches:
       - op: add
         path: /build/artifacts/-
