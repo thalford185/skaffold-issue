@@ -1,0 +1,18 @@
+apiVersion: skaffold/v2beta10
+kind: Config
+build:
+  artifacts:
+    - image: img1
+      context: .
+profiles:
+  - name: local
+    activation:
+      - command: dev
+      - kubeContext: minikube
+    patches:
+      - op: add
+        path: /build/artifacts/-
+        value:
+          image: img2
+          context: .
+
